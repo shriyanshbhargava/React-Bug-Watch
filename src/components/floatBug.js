@@ -29,11 +29,11 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
           questions or issues you're facing while navigating our website.
           <p className="font-bold pt-2">Report an issue.</p>
         </p>
-        <img src={TicketIcon} alt="TicketIcon" className="w-40 pl-2 pr-2"></img>
+        <img src={TicketIcon} alt="TicketIcon" className="h-32 p-5"></img>
       </div>
       <Button
         type="default"
-        className="mt-5"
+        className="mt-5 bg-blue-600 text-white pt-2 "
         icon={<TbCapture />}
         onClick={toggleCaptureButton}
       >
