@@ -62,7 +62,7 @@ export default function CanvasImage({ image, screenCapture }) {
         </TransformComponent>
       </TransformWrapper>
 
-      <div className="inline-flex w-10 ml-52">
+      <div className="inline-flex w-10 ml-56     pt-5">
         <button
           title="Pencil"
           className="p-2 rounded-xl border cursor-pointer dark:border-accent-900 dark:text-accent-200 bg-accent-600 text-accent-50 hover:bg-accent-600 hover:text-accent-50"

@@ -12,6 +12,8 @@ const TaskForm = ({
   image,
   setOpenPreview,
   openPreview,
+  floatVisible,
+  setFloatVisible,
 }) => {
   const [form] = Form.useForm();
   const [formData, setFormData] = useState(null);
@@ -40,7 +42,8 @@ const TaskForm = ({
     setCaptureButtonVisible(false);
     setOpenPreview(false);
     openNotificationWithIcon("success");
-    setOpenCanvas(false);
+    alert("Bug reported, we'll fix it ASAP. Thanks for letting us know!");
+    // setFloatVisible(!floatVisible);
   };
 
   console.log(formData);
@@ -54,12 +57,11 @@ const TaskForm = ({
         open={openCanvas}
         onOk={handleSubmit}
         okText={"Submit"}
-        okType="primary"
+        okType="default"
         onCancel={() => {
           setOpenCanvas(false);
           setCaptureButtonVisible(false);
         }}
-        destroyOnClose
         width={1200}
       >
         <div className="flex ">

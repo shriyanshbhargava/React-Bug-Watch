@@ -38,6 +38,7 @@ function App() {
           <FloatBug
             captureButtonVisible={captureButtonVisible}
             setCaptureButtonVisible={setCaptureButtonVisible}
+
           />
           <CaptureScreen
             onStartCapture={onStartCapture}

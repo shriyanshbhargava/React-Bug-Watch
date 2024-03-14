@@ -71,7 +71,7 @@ function CaptureScreen({
           setOpenCanvas(true);
         }}
         destroyOnClose
-        okType="primary"
+        okType="default"
         onCancel={() => {
           setOpenPreview(false);
           setCaptureButtonVisible(true);
@@ -80,6 +80,7 @@ function CaptureScreen({
         cancelText={"Retake"}
         okText={"Save"}
         width={900}
+        
       >
         {image && <img width={900} src={image} className="p-5" alt="sda" />}
         {screenCapture && (

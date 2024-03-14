@@ -7,6 +7,7 @@ import CaptureScreen from "./captureScreen";
 
 export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
   const [visible, setVisible] = useState(false); // State to manage popover visibility
+  // const [floatVisible, setFloatVisible] = useState(false);
 
   const handleButtonClick = () => {
     setVisible(!visible); // Toggling popover visibility
@@ -14,6 +15,7 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
 
   const toggleCaptureButton = () => {
     setCaptureButtonVisible(!captureButtonVisible);
+    // setFloatVisible();
   };
 
   // const handleTakeScreenshotCancel = () => {
@@ -33,7 +35,7 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
       </div>
       <button
         onClick={toggleCaptureButton}
-        className="bg-blue-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center text-center"
+        className="bg-blue-600 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded inline-flex items-center justify-center text-center"
       >
         <TbCapture className="mr-2" />
         <span>Take a Screenshot</span>
@@ -57,7 +59,7 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
           placement="topLeft"
           content={content}
           arrow={false}
-          visible={visible}
+          open={visible}
           onClose={() => setVisible(false)}
         ></Popover>
       </FloatButton.Group>
