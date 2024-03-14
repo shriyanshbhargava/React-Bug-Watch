@@ -37,9 +37,10 @@ const TaskForm = ({
 
   const handleSubmit = () => {
     setFormData(form.getFieldsValue());
-    setCaptureButtonVisible(!captureButtonVisible);
+    setCaptureButtonVisible(false);
     setOpenPreview(false);
     openNotificationWithIcon("success");
+    setOpenCanvas(false);
   };
 
   console.log(formData);
@@ -53,16 +54,17 @@ const TaskForm = ({
         open={openCanvas}
         onOk={handleSubmit}
         okText={"Submit"}
-        okType="default"
+        okType="primary"
         onCancel={() => {
           setOpenCanvas(false);
           setCaptureButtonVisible(false);
         }}
+        destroyOnClose
         width={1200}
       >
         <div className="flex ">
           <CanvasImage image={image} screenCapture={screenCapture} />
-          <Form layout="vertical" form={form} className="ml-4">
+          <Form layout="vertical" form={form} className="ml-8 w-100">
             <Form.Item label="Form Layout" name="layout" className="mb-2">
               <Radio.Group>
                 <Radio.Button value="bug">Bug</Radio.Button>
@@ -74,7 +76,7 @@ const TaskForm = ({
                 placeholder="Choose an option"
                 onChange={handleChange}
                 style={{
-                  width: 200,
+                  width: 300,
                 }}
                 options={options}
               />
@@ -90,7 +92,7 @@ const TaskForm = ({
                 placeholder="Choose an option"
                 onChange={handleChange}
                 style={{
-                  width: 200,
+                  width: 300,
                 }}
                 options={options}
               />
@@ -100,7 +102,7 @@ const TaskForm = ({
                 placeholder="Choose an option"
                 onChange={handleChange}
                 style={{
-                  width: 200,
+                  width: 300,
                 }}
                 options={options}
               />

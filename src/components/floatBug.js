@@ -31,14 +31,13 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
         </p>
         <img src={TicketIcon} alt="TicketIcon" className="h-32 p-5"></img>
       </div>
-      <Button
-        type="default"
-        className="mt-5 bg-blue-600 text-white pt-2 "
-        icon={<TbCapture />}
+      <button
         onClick={toggleCaptureButton}
+        className="bg-blue-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center text-center"
       >
-        Take A Screenshot
-      </Button>
+        <TbCapture className="mr-2" />
+        <span>Take a Screenshot</span>
+      </button>
     </div>
   );
 

@@ -17,6 +17,12 @@ function CaptureScreen({
   const { image, takeScreenshot } = useScreenshot();
   const [openCanvas, setOpenCanvas] = useState(false);
 
+  useEffect(() => {
+    if (openCanvas && !openPreview) {
+      setOpenPreview(false);
+    }
+  }, [openCanvas, setOpenPreview, openPreview]);
+
   const handleCustomClick = () => {
     setCaptureButtonVisible(false);
     onStartCapture();
@@ -63,9 +69,9 @@ function CaptureScreen({
         open={openPreview}
         onOk={() => {
           setOpenCanvas(true);
-          setOpenPreview(false);
         }}
-        okType="default"
+        destroyOnClose
+        okType="primary"
         onCancel={() => {
           setOpenPreview(false);
           setCaptureButtonVisible(true);

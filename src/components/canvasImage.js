@@ -56,13 +56,13 @@ export default function CanvasImage({ image, screenCapture }) {
           <ReactSketchCanvas
             ref={canvasRef}
             backgroundImage={imgSrc}
-            width="700px"
-            height="700px"
+            width="800px"
+            height="400px"
           />
         </TransformComponent>
       </TransformWrapper>
 
-      <div className="flex w-10 ml-32">
+      <div className="inline-flex w-10 ml-52">
         <button
           title="Pencil"
           className="p-2 rounded-xl border cursor-pointer dark:border-accent-900 dark:text-accent-200 bg-accent-600 text-accent-50 hover:bg-accent-600 hover:text-accent-50"
