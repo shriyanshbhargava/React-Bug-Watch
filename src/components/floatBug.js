@@ -5,9 +5,8 @@ import TicketIcon from "../assets/TicketIcon.png";
 import { TbCapture } from "react-icons/tb";
 import CaptureScreen from "./captureScreen";
 
-export const FloatBug = ({ handleScreenCapture, setOpen, open }) => {
+export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
   const [visible, setVisible] = useState(false); // State to manage popover visibility
-  const [captureButtonVisible, setCaptureButtonVisible] = useState(false);
 
   const handleButtonClick = () => {
     setVisible(!visible); // Toggling popover visibility
@@ -63,16 +62,6 @@ export const FloatBug = ({ handleScreenCapture, setOpen, open }) => {
           onClose={() => setVisible(false)}
         ></Popover>
       </FloatButton.Group>
-      {captureButtonVisible && (
-        <CaptureScreen
-          captureButtonVisible={captureButtonVisible}
-          setCaptureButtonVisible={setCaptureButtonVisible}
-          handleScreenCapture={handleScreenCapture}
-          setOpen={setOpen}
-          open={open}
-        />
-      )}
-      {/* Render ButtonGroup only when buttonGroupVisible is true */}
     </div>
   );
 };

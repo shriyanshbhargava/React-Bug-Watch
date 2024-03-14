@@ -8,11 +8,12 @@ import TaskForm from "./components/taskForm";
 
 function App() {
   const [screenCapture, setScreenCapture] = useState();
-  const [open, setOpen] = useState(false);
+  const [openPreview, setOpenPreview] = useState(false);
+  const [captureButtonVisible, setCaptureButtonVisible] = useState(false);
 
   const handleScreenCapture = (screenCapture) => {
     setScreenCapture(screenCapture);
-    setOpen(true);
+    setOpenPreview(true);
   };
 
   const handleSave = () => {
@@ -43,18 +44,20 @@ function App() {
             </a>
           </header>
           <FloatBug
-            handleScreenCapture={handleScreenCapture}
-            setOpen={setOpen}
-            open={open}
+            captureButtonVisible={captureButtonVisible}
+            setCaptureButtonVisible={setCaptureButtonVisible}
           />
           <CaptureScreen
             onStartCapture={onStartCapture}
             screenCapture={screenCapture}
             handleScreenCapture={handleScreenCapture}
-            setOpen={setOpen}
-            open={open}
+            setOpenPreview={setOpenPreview}
+            openPreview={openPreview}
+            captureButtonVisible={captureButtonVisible}
+            setCaptureButtonVisible={setCaptureButtonVisible}
+            setScreenCapture={setScreenCapture}
           />
-          <TaskForm setOpen={setOpen} open={open} />
+          <TaskForm setOpenPreview={setOpenPreview} openPreview={openPreview} />
           {/* <center>
             <img src={screenCapture} alt="react-screen-capture" />
             <p>

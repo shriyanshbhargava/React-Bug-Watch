@@ -4,11 +4,12 @@ import TextArea from "antd/es/input/TextArea";
 import CanvasImage from "./canvasImage";
 
 const TaskForm = ({
-  openTask,
-  setOpenTask,
-  setShowIcons,
-  open,
-  setOpen,
+  openCanvas,
+  setOpenCanvas,
+  captureButtonVisible,
+  setCaptureButtonVisible,
+  openPreview,
+  setOpenPreview,
   screenCapture,
   image,
 }) => {
@@ -18,9 +19,9 @@ const TaskForm = ({
   const [api, contextHolder] = notification.useNotification();
   const openNotificationWithIcon = (type) => {
     api[type]({
-      message: "Notification Title",
+      message: "Bug Reporteed Sucessfully",
       description:
-        "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+        "Bug reported, we'll fix it ASAP. Thanks for letting us know!",
     });
   };
 
@@ -38,6 +39,8 @@ const TaskForm = ({
     form.validateFields().then((values) => {
       console.log("Form values:", values);
       setFormData(values);
+      setCaptureButtonVisible(!captureButtonVisible);
+      Modal.destroyAll();
     });
     openNotificationWithIcon("success");
   };
@@ -48,25 +51,20 @@ const TaskForm = ({
       <Modal
         title="Bug Reporting Form"
         centered
-        visible={openTask}
+        open={openCanvas}
         onOk={() => {
           handleSubmit();
-          setOpenTask(false);
-          setOpen(false);
         }}
         okText={"Submit"}
         okType="default"
         onCancel={() => {
-          setOpenTask(false);
-          setShowIcons(false);
-          setOpen(false);
+          setOpenCanvas(false);
+          setCaptureButtonVisible(false);
         }}
         width={1200}
       >
         <div className="flex ">
-          <div>
-            <CanvasImage image={image} screenCapture={screenCapture} />
-          </div>
+          <CanvasImage image={image} screenCapture={screenCapture} />
           <Form layout="vertical" form={form} className="ml-4">
             <Form.Item label="Form Layout" name="layout" className="mb-2">
               <Radio.Group>
