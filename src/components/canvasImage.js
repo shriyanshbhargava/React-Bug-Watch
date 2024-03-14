@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   MdClear,
   MdLockReset,
@@ -9,15 +9,14 @@ import {
 } from "react-icons/md";
 import { TbEraser, TbPencil } from "react-icons/tb";
 import { ReactSketchCanvas } from "react-sketch-canvas";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 export default function CanvasImage({ image, screenCapture }) {
   const canvasRef = useRef(null);
   const [eraseMode, setEraseMode] = useState(false);
-  const handleEraserClick = () => {
-    setEraseMode(true);
-    canvasRef.current?.eraseMode(true);
-  };
+
+  const handleEraserClick = () => setEraseMode(true);
+  canvasRef.current?.eraseMode(true);
 
   const handlePenClick = () => {
     setEraseMode(false);
@@ -41,21 +40,24 @@ export default function CanvasImage({ image, screenCapture }) {
   };
 
   const imgSrc = screenCapture ? screenCapture : image;
-  //   const imgAspectRatio = screenCapture ? "xMidYMid meet" : "xMaxYMid meet";
 
   return (
     <div className="flex flex-col gap-2 p-2 items-start">
-      <TransformWrapper>
+      <TransformWrapper
+        panning={{
+          disabled: false,
+          wheelPanning: false,
+          lockAxisX: true,
+          lockAxisY: true,
+        }}
+        pinch={{ disabled: false, wheelPanning: false }}
+      >
         <TransformComponent>
           <ReactSketchCanvas
             ref={canvasRef}
             backgroundImage={imgSrc}
             width="700px"
-            height="400px"
-            panning={{ disabled: "false"}}
-
-            // preserveBackgroundImageAspectRatio={imgAspectRatio}
-            // exportWithBackgroundImage={true}
+            height="700px"
           />
         </TransformComponent>
       </TransformWrapper>
