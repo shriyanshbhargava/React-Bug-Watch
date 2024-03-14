@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Radio, Modal, Select, notification } from "antd";
+import { Form, Input, Modal, Radio, Select, notification } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import CanvasImage from "./canvasImage";
 
@@ -8,10 +8,10 @@ const TaskForm = ({
   setOpenCanvas,
   captureButtonVisible,
   setCaptureButtonVisible,
-  openPreview,
-  setOpenPreview,
   screenCapture,
   image,
+  setOpenPreview,
+  openPreview,
 }) => {
   const [form] = Form.useForm();
   const [formData, setFormData] = useState(null);
@@ -19,7 +19,7 @@ const TaskForm = ({
   const [api, contextHolder] = notification.useNotification();
   const openNotificationWithIcon = (type) => {
     api[type]({
-      message: "Bug Reporteed Sucessfully",
+      message: "Bug Reported Successfully",
       description:
         "Bug reported, we'll fix it ASAP. Thanks for letting us know!",
     });
@@ -36,14 +36,13 @@ const TaskForm = ({
   };
 
   const handleSubmit = () => {
-    form.validateFields().then((values) => {
-      console.log("Form values:", values);
-      setFormData(values);
-      setCaptureButtonVisible(!captureButtonVisible);
-      Modal.destroyAll();
-    });
+    setFormData(form.getFieldsValue());
+    setCaptureButtonVisible(!captureButtonVisible);
+    setOpenPreview(false);
     openNotificationWithIcon("success");
   };
+
+  console.log(formData);
 
   return (
     <>
@@ -52,9 +51,7 @@ const TaskForm = ({
         title="Bug Reporting Form"
         centered
         open={openCanvas}
-        onOk={() => {
-          handleSubmit();
-        }}
+        onOk={handleSubmit}
         okText={"Submit"}
         okType="default"
         onCancel={() => {

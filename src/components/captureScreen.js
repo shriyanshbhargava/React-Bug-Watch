@@ -62,8 +62,8 @@ function CaptureScreen({
         centered
         open={openPreview}
         onOk={() => {
-          setOpenPreview(true);
           setOpenCanvas(true);
+          setOpenPreview(false);
         }}
         okType="default"
         onCancel={() => {

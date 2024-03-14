@@ -15,15 +15,7 @@ function App() {
     setScreenCapture(screenCapture);
     setOpenPreview(true);
   };
-
-  const handleSave = () => {
-    const downloadLink = document.createElement("a");
-    const fileName = "react-screen-capture.png";
-
-    downloadLink.href = screenCapture;
-    downloadLink.download = fileName;
-    downloadLink.click();
-  };
+  console.log(openPreview);
 
   return (
     <ScreenCapture onEndCapture={handleScreenCapture}>
@@ -57,13 +49,6 @@ function App() {
             setCaptureButtonVisible={setCaptureButtonVisible}
             setScreenCapture={setScreenCapture}
           />
-          <TaskForm setOpenPreview={setOpenPreview} openPreview={openPreview} />
-          {/* <center>
-            <img src={screenCapture} alt="react-screen-capture" />
-            <p>
-              {screenCapture && <button onClick={handleSave}>Download</button>}
-            </p>
-          </center> */}
         </div>
       )}
     </ScreenCapture>
