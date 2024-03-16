@@ -41,9 +41,9 @@ const TaskForm = ({
     setFormData(form.getFieldsValue());
     setCaptureButtonVisible(false);
     setOpenPreview(false);
-    openNotificationWithIcon("success");
-    alert("Bug reported, we'll fix it ASAP. Thanks for letting us know!");
     // setFloatVisible(!floatVisible);
+    openNotificationWithIcon("success");
+
   };
 
   console.log(formData);
