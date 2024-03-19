@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { ScreenCapture } from "react-screen-capture";
 import { FloatBug } from "./components/floatBug";
 import logo from "./assets/logo.png";
 import "./App.css";
 import CaptureScreen from "./components/captureScreen";
-import TaskForm from "./components/taskForm";
+import ScreenCapture from "./components/ScreenCapture";
 
 function App() {
   const [screenCapture, setScreenCapture] = useState();
@@ -15,7 +14,6 @@ function App() {
     setScreenCapture(screenCapture);
     setOpenPreview(true);
   };
-  console.log(openPreview);
 
   return (
     <ScreenCapture onEndCapture={handleScreenCapture}>
@@ -38,7 +36,6 @@ function App() {
           <FloatBug
             captureButtonVisible={captureButtonVisible}
             setCaptureButtonVisible={setCaptureButtonVisible}
-
           />
           <CaptureScreen
             onStartCapture={onStartCapture}

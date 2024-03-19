@@ -3,11 +3,9 @@ import { Button, FloatButton, Popover } from "antd";
 import { BugOutlined } from "@ant-design/icons";
 import TicketIcon from "../assets/TicketIcon.png";
 import { TbCapture } from "react-icons/tb";
-import CaptureScreen from "./captureScreen";
 
 export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
   const [visible, setVisible] = useState(false); // State to manage popover visibility
-  // const [floatVisible, setFloatVisible] = useState(false);
 
   const handleButtonClick = () => {
     setVisible(!visible); // Toggling popover visibility
@@ -15,12 +13,8 @@ export const FloatBug = ({ captureButtonVisible, setCaptureButtonVisible }) => {
 
   const toggleCaptureButton = () => {
     setCaptureButtonVisible(!captureButtonVisible);
-    // setFloatVisible();
   };
 
-  // const handleTakeScreenshotCancel = () => {
-  //   setButtonGroupVisible(false); // Show ButtonGroup when take screenshot is clicked
-  // };
 
   const content = (
     <div className="flex flex-col">

@@ -1,8 +1,8 @@
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { useScreenshot } from "use-screenshot-hook";
-import { MdCancel, MdFullscreen, MdOutlineCancel } from "react-icons/md";
-import { TbCrosshair, TbUserCancel, TbZoomInArea } from "react-icons/tb";
+import { MdFullscreen, MdOutlineCancel } from "react-icons/md";
+import { TbZoomInArea } from "react-icons/tb";
 import TaskForm from "./taskForm";
 
 function CaptureScreen({
@@ -58,7 +58,7 @@ function CaptureScreen({
           <button
             type="button"
             className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
-            // onClick={setCaptureButtonVisible(false)}
+            // onClick={setCaptureButtonVisible(!captureButtonVisible)}
           >
             <MdOutlineCancel size={20} className="mr-2" /> Cancel
           </button>
@@ -80,13 +80,12 @@ function CaptureScreen({
         cancelText={"Retake"}
         okText={"Save"}
         width={900}
-        
+        // height={400}
       >
-        {image && <img width={900} src={image} className="p-5" alt="sda" />}
+        {image && <img src={image} className="p-5" alt="sda" />}
         {screenCapture && (
-          <img width={600} src={screenCapture} className="p-5" alt="sda" />
+          <img height={600} src={screenCapture} className="p-5" alt="sda" />
         )}
-
         {openCanvas && ( // Render TaskForm if showTaskForm is true
           <TaskForm
             openCanvas={openCanvas}
