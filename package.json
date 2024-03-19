@@ -8,6 +8,7 @@
     "react-dom": "latest",
     "react-icons": "latest",
     "react-screen-capture": "latest",
+    "react-screenshots": "^0.5.22",
     "react-scripts": "latest",
     "react-sketch-canvas": "^6.2.0",
     "react-zoom-pan-pinch": "^3.4.3",
