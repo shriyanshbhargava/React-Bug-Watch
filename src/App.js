@@ -22,7 +22,8 @@ function App() {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
-              Edit <code>src/App.js</code> and save to reload.
+              Simplify bug reporting in your React app. Take quick snapshots of
+              webpage bugs for easy reporting and resolution.
             </p>
             <a
               className="App-link"
