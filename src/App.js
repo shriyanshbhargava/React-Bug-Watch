@@ -31,7 +31,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              *** click on the bottom left floating button to report any bug in
+              *** click on the bottom right floating button to report any bug in
               the website. ***
             </p>
           </header>
