@@ -22,16 +22,16 @@ function App() {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
-              Simplify bug reporting in your React app. Take quick snapshots of
-              webpage bugs for easy reporting and resolution.
+              Take quick snapshots of webpage bugs for easy reporting and
+              resolution.
             </p>
             <a
               className="App-link"
-              href="https://reactjs.org"
+              href="https://shriyansh.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learn React
+              Created By: Shriyansh Bhargava
             </a>
           </header>
           <FloatBug
