@@ -25,14 +25,15 @@ function App() {
               Take quick snapshots of webpage bugs for easy reporting and
               resolution.
             </p>
-            <a
-              className="App-link"
+            <p
+              className="App-link text-sm pt-5"
               href="https://shriyansh.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Created By: Shriyansh Bhargava
-            </a>
+              *** click on the bottom left floating button to report any bug in
+              the website. ***
+            </p>
           </header>
           <FloatBug
             captureButtonVisible={captureButtonVisible}
